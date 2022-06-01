@@ -1,0 +1,33 @@
+@import "../../scss/Global.scss";
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .login__body {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 50px;
+    border-radius: 20px;
+    width: 500px;
+
+    .showSignupContainer {
+      text-align: center;
+      margin-top: 10px;
+      .question {
+        color: #ffff;
+        margin-right: 10px;
+        margin-top: 10px;
+      }
+
+      .link {
+        font-weight: 600;
+        margin-top: 10px;
+        text-align: center;
+        cursor: pointer;
+        color: $colorLightTwo;
+      }
+    }
+  }
+}

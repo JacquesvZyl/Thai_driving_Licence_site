@@ -1,0 +1,81 @@
+@import "../../scss/Global.scss";
+
+.signUp__form {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    text-align: left;
+    margin-bottom: 25px;
+    color: #ffff;
+    text-align: center;
+  }
+
+  .google__button {
+    display: flex;
+    color: $colorButtons;
+    justify-content: center;
+    align-items: center;
+
+    max-height: 50px;
+    background-color: white;
+    border: 2px solid $colorButtons;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $colorButtons;
+      color: #ffff;
+    }
+
+    .google {
+      width: 30px;
+      vertical-align: middle;
+    }
+    span {
+      vertical-align: middle;
+    }
+  }
+
+  .or {
+    line-height: 0.9px;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid #e2e4e5;
+    margin: 26px 0;
+
+    span {
+      color: #e2e4e5;
+      background-color: #579aaa;
+
+      padding: 0 15px;
+    }
+  }
+
+  input {
+    outline-width: 0;
+    height: 40px;
+    margin-bottom: 14px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 15px;
+  }
+
+  button {
+    padding: 16px 20px;
+    font-size: 1rem;
+
+    border-radius: 5px;
+
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+    border: 2px solid $colorButtons;
+
+    &:hover {
+      background-color: #ffff;
+      color: $colorButtons;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.answers {
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 80px;
+
+  p {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    text-align: center;
+  }
+
+  .question {
+    padding-bottom: 10px;
+  }
+
+  .answer {
+    padding: 10px 0px;
+    h3 {
+      text-align: center;
+    }
+    .correct {
+      background-color: green;
+      color: white;
+    }
+
+    .wrong {
+      background-color: red;
+      color: white;
+    }
+    .correct__blue {
+      background-color: blue;
+      color: white;
+    }
+  }
+}
