@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { getDownloadURL, getStorage, ref } from "firebase/storage";
+import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { addAnswer } from "../../store/userSlice";
@@ -17,9 +18,23 @@ function Test({
 }) {
   const [selected, setSelected] = useState(null);
   const [isError, setError] = useState(false);
+  const [imageUrl, setImageUrl] = useState(null);
   const isDone = currentQuestionNumber + 1 === +totalQuestions;
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!question.imgUrl) return;
+    async function getImage() {
+      const storage = getStorage();
+      const reference = ref(storage, `/images/${question.imgUrl}`);
+      const result = await getDownloadURL(reference);
+      setImageUrl(result);
+
+      console.log(imageUrl);
+    }
+    getImage();
+  }, [question.imageUrl, imageUrl]);
 
   function nextQuestion() {
     if (selected === null) {
@@ -66,7 +81,7 @@ function Test({
       </div>
       <div className={styles.questionContainer}>
         <legend>{question.question}</legend>
-        {question.image && <img src={question.img} alt="sign" />}
+        {imageUrl && <img src={imageUrl} alt="sign" />}
 
         <div className={styles.answers}>
           <div className={styles.question}>

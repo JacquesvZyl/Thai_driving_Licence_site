@@ -8,6 +8,7 @@ import styles from "./MockTest.module.scss";
 function MockTest() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showResults, setShowResults] = useState(false);
+  const [test, setTest] = useState([]);
   const stateAnswers = useSelector((state) => state.user.answers);
   const dispatch = useDispatch();
 
@@ -15,6 +16,18 @@ function MockTest() {
     if (!stateAnswers) return;
     dispatch(resetAnswers());
   }, []);
+
+  ////// TEST DATA. DELETE AFTERWARDS //////
+
+  useEffect(() => {
+    const res = questions.filter(
+      (question) => typeof question.answer === "number"
+    );
+    setTest(res);
+    console.log(test);
+  }, [questions]);
+
+  /////////////////////////////////////////
 
   return (
     <div className={styles.mocktest}>
