@@ -27,7 +27,9 @@ function Navbar() {
         </Link>
 
         <ul>
-          <li>Study</li>
+          <li>
+            <Link to="/study">Study</Link>
+          </li>
           <li>
             <Link to="/mocktest">Take mock test</Link>
           </li>

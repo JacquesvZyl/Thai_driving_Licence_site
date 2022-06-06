@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { doc, setDoc } from "firebase/firestore";
 import {
+  db,
   signInWithEmailAndPw,
   signInWithGooglePopup,
 } from "../../firebase/firebase";
@@ -18,7 +20,10 @@ function LoginForm() {
 
   async function googleSignIn() {
     try {
-      await signInWithGooglePopup();
+      const resp = await signInWithGooglePopup();
+      await setDoc(doc(db, "users", resp.user.uid), {
+        email: resp.user.email,
+      });
       navigate("/");
     } catch (error) {
       toast(`⚠ ${error.message}`, {

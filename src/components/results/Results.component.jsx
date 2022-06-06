@@ -4,13 +4,13 @@ import { resetAnswers } from "../../store/userSlice";
 import Button from "../ui/button/Button.component";
 import styles from "./Results.module.scss";
 
-function Results({ setShowResults, setCurrentQuestion }) {
+function Results({ setShowResult, setCurrentQuestion }) {
   const answersState = useSelector((state) => state.user.answers);
   const [totalCorrect, setTotalCorrect] = useState(0);
   const dispatch = useDispatch();
 
   function reset() {
-    setShowResults(false);
+    setShowResult(false);
     setCurrentQuestion(0);
     dispatch(resetAnswers());
   }
@@ -31,15 +31,21 @@ function Results({ setShowResults, setCurrentQuestion }) {
         </div>
         {!answer.correctAnswer.localeCompare(answer.selectedAnswer) ? (
           <div className={styles.correct}>
-            <span>Your answer: {answer.selectedAnswer}</span>
+            <span>
+              <span className={styles.bold}>Your Answer:</span>{" "}
+              {answer.selectedAnswer}
+            </span>
           </div>
         ) : (
           <>
+            <div className={styles.wrong}>
+              <span>
+                <span className={styles.bold}>Your Answer:</span>{" "}
+                {answer.selectedAnswer}
+              </span>
+            </div>
             <div className={styles.correct__blue}>
               <span> Correct Answer: {answer.correctAnswer}</span>
-            </div>
-            <div className={styles.wrong}>
-              <span>Your Answer: {answer.selectedAnswer}</span>
             </div>
           </>
         )}
@@ -48,11 +54,16 @@ function Results({ setShowResults, setCurrentQuestion }) {
   });
   return (
     <div className={styles.answers}>
+      <div className={styles.results}>
+        <p>
+          You have {totalCorrect} out of {answersState.length} Correct.{" "}
+          <span>
+            ({((totalCorrect / answersState.length) * 100).toFixed(0)}%)
+          </span>
+        </p>
+      </div>
       {results}
-      <p>
-        You have {totalCorrect} out of {answersState.length} Correct
-      </p>
-      <p>{((totalCorrect / answersState.length) * 100).toFixed(0)}%</p>
+
       <Button onClick={reset}>Again?</Button>
     </div>
   );

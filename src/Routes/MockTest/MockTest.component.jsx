@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Results from "../../components/results/Results.component";
-import Test from "../../components/test/Test.component";
+import ExamWrapper from "../../components/ExamWrapper/ExamWrapper.component";
+import TestPopup from "../../components/testPopup/TestPopup.component";
 import { questions } from "../../Data/testData";
 import { resetAnswers } from "../../store/userSlice";
 import styles from "./MockTest.module.scss";
 function MockTest() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [showResults, setShowResults] = useState(false);
-  const [test, setTest] = useState([]);
+  const [showTest, setShowTest] = useState(false);
+  const [randomQuestions, setRandomQuestions] = useState([]);
+  const [showResult, setShowResult] = useState(false);
   const stateAnswers = useSelector((state) => state.user.answers);
   const dispatch = useDispatch();
 
@@ -17,33 +18,41 @@ function MockTest() {
     dispatch(resetAnswers());
   }, []);
 
-  ////// TEST DATA. DELETE AFTERWARDS //////
-
   useEffect(() => {
-    const res = questions.filter(
-      (question) => typeof question.answer === "number"
-    );
-    setTest(res);
-    console.log(test);
-  }, [questions]);
+    const rand = [];
+    for (let i = 0; i < 5; i++) {
+      const randNum = Math.floor(Math.random() * questions.length) + 1;
+      rand.push(randNum);
+    }
 
-  /////////////////////////////////////////
+    const randomQuest = rand.map((r) => questions[r]);
+
+    setRandomQuestions(randomQuest);
+    console.log(randomQuestions);
+  }, [questions, showResult]);
+
+  console.log(randomQuestions);
 
   return (
     <div className={styles.mocktest}>
-      {!showResults ? (
-        <Test
-          question={questions[currentQuestion]}
+      {showTest ? (
+        <ExamWrapper
+          question={randomQuestions[currentQuestion]}
           setCurrentQuestion={setCurrentQuestion}
           currentQuestionNumber={currentQuestion}
-          totalQuestions={questions.length}
-          setShowResults={setShowResults}
+          totalQuestions={randomQuestions.length}
+          showResult={showResult}
+          setShowResult={setShowResult}
         />
       ) : (
-        <Results
+        <TestPopup
+          setShowTest={setShowTest}
+          totalQuestionsInPool={questions.length}
+        />
+        /*     <Results
           setShowResults={setShowResults}
           setCurrentQuestion={setCurrentQuestion}
-        />
+        /> */
       )}
     </div>
   );

@@ -8,6 +8,7 @@ import { onAuthStateChangeListener } from "./firebase/firebase";
 import Homepage from "./Routes/HomePage/Homepage.component";
 import Login from "./Routes/Login/Login.component";
 import MockTest from "./Routes/MockTest/MockTest.component";
+import Study from "./Routes/Study/Study.component";
 import { login, logout } from "./store/userSlice";
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="mocktest" element={<ProtectedRoute />}>
             <Route index element={<MockTest />} />
+          </Route>
+          <Route path="study" element={<ProtectedRoute />}>
+            <Route index element={<Study itemsPerPage={10} />} />
           </Route>
           <Route path="*" element={<Homepage />} />
         </Route>

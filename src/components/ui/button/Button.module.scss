@@ -1,3 +1,5 @@
+@import "../../../scss/Global.scss";
+
 .button {
   display: block;
   margin-left: auto;
@@ -7,6 +9,6 @@
   color: #ffff;
   font-weight: 600;
   border-radius: 20px;
-  background-color: rgb(22, 7, 226);
+  background-color: $colorButtons;
   cursor: pointer;
 }
