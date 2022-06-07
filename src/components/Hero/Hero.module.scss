@@ -2,9 +2,10 @@
 
 .hero {
   background-color: $colorHeroBg;
-  height: 900px;
+  height: 830px;
   position: relative;
-  background-image: url("../../assets/img/city.png");
+  background-image: url("../../assets/img/skyline.svg");
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -18,7 +19,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 400px;
+    max-width: 350px;
   }
 
   .arch {
@@ -39,13 +40,12 @@
     color: #ffff;
     display: flex;
     flex-direction: column;
-    margin-top: 200px;
+    margin-top: 50px;
     padding: 20px;
     max-width: 900px;
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.4);
 
     h1 {
       font-size: 40px;
@@ -58,7 +58,8 @@
       margin-bottom: 20px;
     }
 
-    button {
+    a {
+      text-decoration: none;
       font-size: 20px;
       font-weight: 600px;
       padding: 10px 20px;
@@ -68,6 +69,28 @@
       border: none;
       border-radius: 20px;
       cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .hero {
+    height: 550px;
+    img {
+      max-width: 250px;
+    }
+    .hero__text {
+      h1 {
+        font-size: 20px;
+      }
+
+      h2 {
+        font-size: 15px;
+      }
+
+      a {
+        font-size: 15px;
+      }
     }
   }
 }

@@ -1,8 +1,8 @@
 @import "../../scss/Global.scss";
 
 .header {
-  z-index: 3;
-  position: absolute;
+  z-index: 4;
+  position: relative;
   top: 0;
   display: flex;
   width: 100%;
@@ -16,16 +16,28 @@
     color: $colorButtons;
   }
 
-  ul {
+  .desktop__links {
+    z-index: 0;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    transition: transform 0.2s ease-in;
+    background-color: $colorButtons;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+
     gap: 20px;
-    li {
+    padding: 20px;
+    li,
+    a {
       cursor: pointer;
       list-style: none;
       text-transform: uppercase;
       padding: 5px 10px;
       background-color: $colorButtons;
       color: #ffff;
+      text-decoration: none;
       border-radius: 20px;
       font-weight: 600;
     }

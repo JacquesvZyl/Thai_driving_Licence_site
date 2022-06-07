@@ -11,7 +11,7 @@ function TestPopup({ setShowTest, totalQuestionsInPool }) {
           {totalQuestionsInPool}
         </h3>
         <p>
-          In order to pass, you need <span>80%</span> correct{" "}
+          In order to pass, you need <span>90%</span> correct{" "}
           <span>(45/50)</span>
         </p>
         <p>Good Luck!</p>

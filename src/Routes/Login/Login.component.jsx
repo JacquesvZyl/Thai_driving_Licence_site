@@ -10,6 +10,10 @@ function Login() {
   }
   return (
     <div className={styles.login}>
+      <h2>
+        Sign {showSignup ? "up" : "in"} now to get free access to over 400 exam
+        questions and randomized mock exams.
+      </h2>
       <div className={styles.login__body}>
         {showSignup ? <SignupForm /> : <LoginForm />}
         <div className={styles.showSignupContainer}>

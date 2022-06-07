@@ -45,7 +45,7 @@
 
     span {
       color: #e2e4e5;
-      background-color: #579aaa;
+      background-color: #b02602;
 
       padding: 0 15px;
     }
@@ -76,6 +76,29 @@
     &:hover {
       background-color: #ffff;
       color: $colorButtons;
+    }
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .login__form {
+    h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .google__button {
+      max-height: 40px;
+      font-size: 15px;
+
+      .google {
+        width: 25px;
+      }
+    }
+
+    button {
+      font-size: 15px;
+      padding: 10px 20px;
     }
   }
 }

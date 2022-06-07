@@ -58,6 +58,7 @@ function Exam({
     dispatch(
       addAnswer({
         question: question.question,
+        imageUrl: imageUrl ? imageUrl : null,
         selectedAnswer: question.choice[selected],
         correctAnswer: question.choice[question.answer],
       })
@@ -100,7 +101,6 @@ function Exam({
 
         <div className={styles.answers}>
           <div className={styles.question}>
-            <span>A:</span>
             <input
               type="radio"
               id="question 1"
@@ -112,7 +112,6 @@ function Exam({
           </div>
 
           <div className={styles.question}>
-            <span>B:</span>
             <input
               type="radio"
               id="question 2"
@@ -123,7 +122,6 @@ function Exam({
             <label htmlFor="question 2">{question.choice[1]}</label>
           </div>
           <div className={styles.question}>
-            <span>C:</span>
             <input
               type="radio"
               id="question 3"
@@ -134,7 +132,6 @@ function Exam({
             <label htmlFor="question 3">{question.choice[2]}</label>
           </div>
           <div className={styles.question}>
-            <span>D:</span>
             <input
               type="radio"
               id="question 4"

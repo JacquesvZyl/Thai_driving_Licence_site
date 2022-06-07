@@ -2,6 +2,7 @@ import React from "react";
 
 import styles from "./Hero.module.scss";
 import bikeImg from "../../assets/img/bike.png";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -11,7 +12,8 @@ function Hero() {
           Increase your chances of Passing your Thailand Driving Theory Test!
         </h1>
         <h2>Practice mock theory tests now.</h2>
-        <button>Take free mock theory tests</button>
+
+        <Link to="/mocktest">Take free mock theory tests</Link>
       </section>
 
       <img src={bikeImg} alt="man and woman on bike" />

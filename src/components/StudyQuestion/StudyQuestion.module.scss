@@ -3,7 +3,6 @@
 .test {
   width: 800px;
   border-bottom: 1px solid black;
-  padding-bottom: 20px;
 
   display: flex;
   justify-content: center;
@@ -28,7 +27,7 @@
 
     legend {
       margin-bottom: 20px;
-      text-align: center;
+      /*  text-align: center; */
       font-weight: 600;
     }
 
@@ -63,7 +62,7 @@
         padding: 0.5em;
         width: 20px;
         height: 20px;
-        margin-left: 10px;
+
         cursor: pointer;
         -webkit-appearance: none;
 
@@ -76,6 +75,36 @@
     .answers {
       display: flex;
       flex-direction: column;
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .test {
+    width: 95vw;
+    .questionContainer {
+      padding: 10px;
+
+      h3 {
+        font-size: 16px;
+      }
+
+      legend {
+        font-size: 15px;
+      }
+
+      label {
+        font-size: 12px;
+      }
+
+      input[type="radio"] {
+        width: 15px;
+        height: 15px;
+      }
+
+      .sign {
+        max-width: 250px;
+      }
     }
   }
 }

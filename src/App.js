@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Navbar from "./components/NavBar/Navbar.component";
 import ProtectedRoute from "./components/protectedRoutes/ProtectedRoute.component";
+import ProtectedUserRoute from "./components/protectedRoutes/ProtectedUserRoute.component";
 import { onAuthStateChangeListener } from "./firebase/firebase";
 import Homepage from "./Routes/HomePage/Homepage.component";
 import Login from "./Routes/Login/Login.component";
@@ -40,7 +41,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<Homepage />} />
-          <Route path="login" element={<Login />} />
+
+          <Route path="login" element={<ProtectedUserRoute />}>
+            <Route index element={<Login />} />
+          </Route>
+
           <Route path="mocktest" element={<ProtectedRoute />}>
             <Route index element={<MockTest />} />
           </Route>

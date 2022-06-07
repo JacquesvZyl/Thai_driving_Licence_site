@@ -48,3 +48,21 @@
     }
   }
 }
+
+@media screen and (max-width: 800px) {
+  .study {
+    margin: 20px 20px 20px 20px;
+    .pagination {
+      width: 99vw;
+      gap: 5px;
+      border-radius: 0;
+
+      li {
+        a {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}

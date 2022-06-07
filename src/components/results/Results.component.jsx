@@ -28,6 +28,9 @@ function Results({ setShowResult, setCurrentQuestion }) {
         <h3>Question {i + 1}</h3>
         <div className={styles.question}>
           <h4>{answer.question}</h4>
+          {answer.imageUrl && (
+            <img className={styles.sign} src={answer.imageUrl} />
+          )}
         </div>
         {!answer.correctAnswer.localeCompare(answer.selectedAnswer) ? (
           <div className={styles.correct}>
@@ -60,6 +63,14 @@ function Results({ setShowResult, setCurrentQuestion }) {
           <span>
             ({((totalCorrect / answersState.length) * 100).toFixed(0)}%)
           </span>
+        </p>
+        <p>
+          Result:{" "}
+          {((totalCorrect / answersState.length) * 100).toFixed(0) >= 90 ? (
+            <span className={styles.pass}>Pass</span>
+          ) : (
+            <span className={styles.fail}>Fail</span>
+          )}{" "}
         </p>
       </div>
       {results}
