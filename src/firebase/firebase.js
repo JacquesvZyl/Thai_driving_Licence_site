@@ -10,8 +10,15 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
-import {getStorage, ref, getDownloadURL} from 'firebase/storage'
+import {
+  addDoc,
+  collection,
+  doc,
+  getFirestore,
+  onSnapshot,
+  setDoc,
+} from "firebase/firestore";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -68,4 +75,26 @@ export function onAuthStateChangeListener(callback) {
 
 export async function signOutUser() {
   await signOut(auth);
+}
+
+export async function addResult(user, result) {
+  const currentDate = new Date().toISOString();
+
+  await addDoc(collection(db, "users", user.uid, "results"), {
+    date: Date.parse(currentDate),
+    result: result,
+  });
+}
+
+export function returnResults(user, setResults) {
+  return onSnapshot(collection(db, `users/${user.uid}/results`), (snapshot) => {
+    const results = snapshot.docs
+      .map((result) => result.data())
+      .sort((a, b) => b.date - a.date)
+      .filter((_, i) => i <= 2);
+    /*   const sortedResult = results
+      .sort((a, b) => b.date - a.date)
+      .filter((result, i) => i <= 4); */
+    setResults((val) => (results.length > 0 ? results : null));
+  });
 }

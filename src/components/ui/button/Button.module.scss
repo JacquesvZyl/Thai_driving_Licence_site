@@ -10,5 +10,10 @@
   font-weight: 600;
   border-radius: 20px;
   background-color: $colorButtons;
+  transition: 0.3s;
   cursor: pointer;
+
+  &:hover {
+    background-color: $colorLightTwo;
+  }
 }

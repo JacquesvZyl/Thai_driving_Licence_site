@@ -2,10 +2,10 @@ import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch } from "react-redux";
+
 import { addAnswer } from "../../store/userSlice";
 import { toastStyleError } from "../../utils/Global";
 import Button from "../ui/button/Button.component";
-import Error from "../ui/error/Error.component";
 
 import styles from "./Exam.module.scss";
 
@@ -17,7 +17,7 @@ function Exam({
   setShowResult,
 }) {
   const [selected, setSelected] = useState(null);
-  const [isError, setError] = useState(false);
+
   const [imageUrl, setImageUrl] = useState(null);
   const isDone = currentQuestionNumber + 1 === +totalQuestions;
 
@@ -45,9 +45,8 @@ function Exam({
 
   console.log(imageUrl);
 
-  function nextQuestion() {
+  async function nextQuestion() {
     if (selected === null) {
-      setError(true);
       toast(`⚠ Please select an answer`, {
         duration: 2000,
         style: toastStyleError,
@@ -76,7 +75,6 @@ function Exam({
   function onAnswerSelect(e) {
     const { value } = e.target;
     setSelected(+value);
-    setError(false);
   }
 
   function isRadioSelected(num) {

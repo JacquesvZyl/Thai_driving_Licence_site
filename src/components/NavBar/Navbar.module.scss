@@ -28,18 +28,22 @@
     align-items: center;
 
     gap: 20px;
-    padding: 20px;
+
     li,
     a {
       cursor: pointer;
       list-style: none;
       text-transform: uppercase;
-      padding: 5px 10px;
-      background-color: $colorButtons;
+
+      padding: 10px 20px;
       color: #ffff;
       text-decoration: none;
-      border-radius: 20px;
+      width: 100%;
+      transition: 0.3s;
       font-weight: 600;
+      &:hover {
+        background-color: $colorLightTwo;
+      }
     }
   }
 

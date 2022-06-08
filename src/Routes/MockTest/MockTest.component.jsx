@@ -20,7 +20,7 @@ function MockTest() {
 
   useEffect(() => {
     const rand = [];
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 2; i++) {
       const randNum = Math.floor(Math.random() * questions.length) + 1;
       rand.push(randNum);
     }
