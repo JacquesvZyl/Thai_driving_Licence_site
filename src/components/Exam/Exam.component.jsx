@@ -10,10 +10,10 @@ import Button from "../ui/button/Button.component";
 import styles from "./Exam.module.scss";
 
 function Exam({
-  setCurrentQuestion,
   question,
   totalQuestions,
   currentQuestionNumber,
+  setCurrentQuestion,
   setShowResult,
 }) {
   const [selected, setSelected] = useState(null);
@@ -24,7 +24,7 @@ function Exam({
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!question.imgName) {
+    if (question.imgName?.length < 1 || question.imgName === null) {
       setImageUrl(null);
       return;
     }
@@ -59,7 +59,9 @@ function Exam({
         question: question.question,
         imageUrl: imageUrl ? imageUrl : null,
         selectedAnswer: question.choice[selected],
+        selectedAnswerNum: selected,
         correctAnswer: question.choice[question.answer],
+        correctAnswerNum: question.answer,
       })
     );
 
@@ -68,8 +70,8 @@ function Exam({
     } else {
       setCurrentQuestion((prevVal) => prevVal + 1);
     }
-    setSelected(null);
     setImageUrl(null);
+    setSelected(null);
   }
 
   function onAnswerSelect(e) {
@@ -90,12 +92,13 @@ function Exam({
       </div>
       <div className={styles.questionContainer}>
         <legend>{question.question}</legend>
-        {imageUrl &&
-          imageUrl.map((url) => {
-            return (
-              <img className={styles.sign} key={url} src={url} alt="sign" />
-            );
-          })}
+        {imageUrl?.length > 0
+          ? imageUrl.map((url) => {
+              return (
+                <img className={styles.sign} key={url} src={url} alt="sign" />
+              );
+            })
+          : ""}
 
         <div className={styles.answers}>
           <div className={styles.question}>

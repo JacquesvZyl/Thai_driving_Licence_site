@@ -5,7 +5,11 @@ import { resetAnswers } from "../../store/userSlice";
 import Button from "../ui/button/Button.component";
 import styles from "./Results.module.scss";
 
-function Results({ setShowResult, setCurrentQuestion }) {
+function Results({
+  setShowResult,
+  setCurrentQuestion,
+  generateRandomQuestions,
+}) {
   const answersState = useSelector((state) => state.user.answers);
   const [totalCorrect, setTotalCorrect] = useState(0);
   const user = useSelector((state) => state.user.user);
@@ -15,10 +19,11 @@ function Results({ setShowResult, setCurrentQuestion }) {
     setShowResult(false);
     setCurrentQuestion(0);
     dispatch(resetAnswers());
+    generateRandomQuestions();
   }
 
   useEffect(() => {
-    const total = answersState.filter(
+    const total = answersState?.filter(
       (answer) => !answer.correctAnswer.localeCompare(answer.selectedAnswer)
     );
     setTotalCorrect(total.length);

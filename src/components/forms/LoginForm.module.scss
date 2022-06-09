@@ -78,6 +78,13 @@
       color: $colorButtons;
     }
   }
+
+  .forgot_password {
+    text-align: right;
+    text-decoration: none;
+    color: #d4d4d4;
+    margin-top: 5px;
+  }
 }
 
 @media screen and (max-width: 570px) {

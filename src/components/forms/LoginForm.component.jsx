@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 import {
   db,
@@ -70,6 +70,9 @@ function LoginForm() {
       <ButtonWithSpinner isLoading={isLoading} onClick={signIn}>
         Sign In
       </ButtonWithSpinner>
+      <Link className={styles.forgot_password} to="/forgot-password">
+        Forgot password?
+      </Link>
     </form>
   );
 }

@@ -9,6 +9,7 @@ import {
   signOut,
   GoogleAuthProvider,
   signInWithPopup,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import {
   addDoc,
@@ -96,5 +97,11 @@ export function returnResults(user, setResults) {
       .sort((a, b) => b.date - a.date)
       .filter((result, i) => i <= 4); */
     setResults((val) => (results.length > 0 ? results : null));
+  });
+}
+
+export async function forgotPassword(email) {
+  return await sendPasswordResetEmail(auth, email, {
+    url: "http://localhost:3000/login",
   });
 }

@@ -4,7 +4,11 @@ import { returnResults } from "../../firebase/firebase";
 import Button from "../ui/button/Button.component";
 import styles from "./TestPopup.module.scss";
 
-function TestPopup({ setShowTest, totalQuestionsInPool }) {
+function TestPopup({
+  setShowTest,
+  totalQuestionsInPool,
+  generateRandomQuestions,
+}) {
   const user = useSelector((state) => state.user.user);
   const [results, setResults] = useState(null);
 
@@ -12,6 +16,11 @@ function TestPopup({ setShowTest, totalQuestionsInPool }) {
     returnResults(user, setResults);
     console.log(results);
   }, []);
+
+  function onStart() {
+    generateRandomQuestions();
+    setShowTest(true);
+  }
 
   console.log(results);
   return (
@@ -27,7 +36,7 @@ function TestPopup({ setShowTest, totalQuestionsInPool }) {
         </p>
         <p>Good Luck!</p>
         <div className={styles.scores}>
-          <h4>Previous 3 Scores:</h4>
+          <h4>Your previous 3 scores:</h4>
           {results ? (
             results.map((r) => {
               const newDate = new Date(r.date);
@@ -45,7 +54,7 @@ function TestPopup({ setShowTest, totalQuestionsInPool }) {
           )}
         </div>
       </div>
-      <Button onClick={() => setShowTest(true)}>Begin</Button>
+      <Button onClick={onStart}>Begin</Button>
     </section>
   );
 }

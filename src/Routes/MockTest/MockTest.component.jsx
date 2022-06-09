@@ -6,7 +6,6 @@ import { questions } from "../../Data/testData";
 import { resetAnswers } from "../../store/userSlice";
 import styles from "./MockTest.module.scss";
 function MockTest() {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showTest, setShowTest] = useState(false);
   const [randomQuestions, setRandomQuestions] = useState([]);
   const [showResult, setShowResult] = useState(false);
@@ -18,9 +17,9 @@ function MockTest() {
     dispatch(resetAnswers());
   }, []);
 
-  useEffect(() => {
+  function generateRandomQuestions() {
     const rand = [];
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 50; i++) {
       const randNum = Math.floor(Math.random() * questions.length) + 1;
       rand.push(randNum);
     }
@@ -28,26 +27,24 @@ function MockTest() {
     const randomQuest = rand.map((r) => questions[r]);
 
     setRandomQuestions(randomQuest);
-    console.log(randomQuestions);
-  }, [questions, showResult]);
-
-  console.log(randomQuestions);
+    console.log(randomQuest);
+  }
 
   return (
     <div className={styles.mocktest}>
       {showTest ? (
         <ExamWrapper
-          question={randomQuestions[currentQuestion]}
-          setCurrentQuestion={setCurrentQuestion}
-          currentQuestionNumber={currentQuestion}
+          question={randomQuestions}
           totalQuestions={randomQuestions.length}
           showResult={showResult}
           setShowResult={setShowResult}
+          generateRandomQuestions={generateRandomQuestions}
         />
       ) : (
         <TestPopup
           setShowTest={setShowTest}
           totalQuestionsInPool={questions.length}
+          generateRandomQuestions={generateRandomQuestions}
         />
         /*     <Results
           setShowResults={setShowResults}

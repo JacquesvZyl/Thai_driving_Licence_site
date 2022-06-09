@@ -4,26 +4,27 @@ import Results from "../results/Results.component";
 
 function ExamWrapper({
   question,
-  setCurrentQuestion,
-  currentQuestionNumber,
   totalQuestions,
   showResult,
   setShowResult,
+  generateRandomQuestions,
 }) {
+  const [currentQuestionNumber, setCurrentQuestion] = useState(0);
   return (
     <>
       {!showResult ? (
         <Exam
-          question={question}
-          setCurrentQuestion={setCurrentQuestion}
-          currentQuestionNumber={currentQuestionNumber}
+          question={question[[currentQuestionNumber]]}
           totalQuestions={totalQuestions}
           setShowResult={setShowResult}
+          setCurrentQuestion={setCurrentQuestion}
+          currentQuestionNumber={currentQuestionNumber}
         />
       ) : (
         <Results
           setShowResult={setShowResult}
           setCurrentQuestion={setCurrentQuestion}
+          generateRandomQuestions={generateRandomQuestions}
         />
       )}
     </>
