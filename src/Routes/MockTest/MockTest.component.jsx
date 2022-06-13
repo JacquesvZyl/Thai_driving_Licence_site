@@ -2,22 +2,29 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ExamWrapper from "../../components/ExamWrapper/ExamWrapper.component";
 import TestPopup from "../../components/testPopup/TestPopup.component";
-import { questions } from "../../Data/testData";
+import { getQuestions } from "../../firebase/firebase";
+//import { questions } from "../../Data/testData";
 import { resetAnswers } from "../../store/userSlice";
 import styles from "./MockTest.module.scss";
 function MockTest() {
   const [showTest, setShowTest] = useState(false);
+  const [questions, setQuestions] = useState([]);
   const [randomQuestions, setRandomQuestions] = useState([]);
   const [showResult, setShowResult] = useState(false);
   const stateAnswers = useSelector((state) => state.user.answers);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!stateAnswers) return;
-    dispatch(resetAnswers());
+    getQuestions(setQuestions);
   }, []);
 
+  useEffect(() => {
+    if (!stateAnswers) return;
+    dispatch(resetAnswers());
+  }, [dispatch]);
+
   function generateRandomQuestions() {
+    if (!questions) return;
     const rand = [];
     for (let i = 0; i < 50; i++) {
       const randNum = Math.floor(Math.random() * questions.length) + 1;
@@ -27,7 +34,6 @@ function MockTest() {
     const randomQuest = rand.map((r) => questions[r]);
 
     setRandomQuestions(randomQuest);
-    console.log(randomQuest);
   }
 
   return (
@@ -46,10 +52,6 @@ function MockTest() {
           totalQuestionsInPool={questions.length}
           generateRandomQuestions={generateRandomQuestions}
         />
-        /*     <Results
-          setShowResults={setShowResults}
-          setCurrentQuestion={setCurrentQuestion}
-        /> */
       )}
     </div>
   );

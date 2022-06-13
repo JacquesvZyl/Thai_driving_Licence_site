@@ -24,7 +24,7 @@ function Results({
 
   useEffect(() => {
     const total = answersState?.filter(
-      (answer) => !answer.correctAnswer.localeCompare(answer.selectedAnswer)
+      (answer) => answer.correctAnswerNum === answer.selectedAnswerNum
     );
     setTotalCorrect(total.length);
 
@@ -49,7 +49,7 @@ function Results({
             <img className={styles.sign} src={answer.imageUrl} />
           )}
         </div>
-        {!answer.correctAnswer.localeCompare(answer.selectedAnswer) ? (
+        {answer.correctAnswerNum === answer.selectedAnswerNum ? (
           <div className={styles.correct}>
             <span>
               <span className={styles.bold}>Your Answer:</span>{" "}

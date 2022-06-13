@@ -389,7 +389,7 @@ export const questions = [
     choice: {
       0: "A. ambulance that is not a car for hire",
       1: "B. Personal motorcycles",
-      2: "Personal motorcycle",
+      2: "C. Personal motorcycle",
       3: "D. Personal van",
     },
     answer: 0,
@@ -508,8 +508,8 @@ export const questions = [
     choice: {
       0: "A. Proceed to change color immediately",
       1: "B. Notify the registrar within 15 days",
-      2: "c. Notify the registrar within 30 days",
-      3: "d. Notify the registrar within 7 days",
+      2: "C. Notify the registrar within 30 days",
+      3: "D. Notify the registrar within 7 days",
     },
     answer: 1,
     imgUrl: null,
@@ -534,9 +534,9 @@ export const questions = [
   {
     question: "Who is the inspector under the Motor Vehicle Act?",
     choice: {
-      0: "Ministry of Transport personnel appointed by the Minister of Transport",
+      0: "A. Ministry of Transport personnel appointed by the Minister of Transport",
       1: "B. Staff of the Department of Land Transport",
-      2: "Staff Transport Company Limited",
+      2: "C. Staff Transport Company Limited",
       3: "D. Officers of the Department of Transport and Police",
     },
     answer: 0,
@@ -567,7 +567,7 @@ export const questions = [
       0: "A. guilty of having to pay a penalty for notifying overdue moves",
       1: "B. No penalty fee Due to need",
       2: "C. The vehicle cannot be moved",
-      3: ".D. All of the above apply.",
+      3: "D. All of the above apply.",
     },
     answer: 0,
     imgUrl: null,
@@ -579,9 +579,9 @@ export const questions = [
     question:
       "If wanting to transfer a car, how many days does the owner need to notify the car registrar?",
     choice: {
-      0: "A.60 days,",
-      1: "B.25 days",
-      2: "C.30 days",
+      0: "A. 60 days,",
+      1: "B. 25 days",
+      2: "C. 30 days",
       3: "D. 15 days",
     },
     answer: 3,
@@ -623,10 +623,10 @@ export const questions = [
     question:
       "Can Mr. A. bring his own motorcycle to send his wife to the market?",
     choice: {
-      0: "A. Yes, because your wife A. Family",
+      0: "A. Yes, because your wife is Family",
       1: "B. The bike park can be used for acquisitions, private car owners have",
-      2: "C. Not because the motorcycle public must be employed only",
-      3: "between.",
+      2: "C. Not because the motorcycle public must be employed only between.",
+      3: "D. Not because the motorcycle public use in the business owner’s personal vehicle.",
     },
     answer: 1,
     imgUrl: null,
@@ -943,7 +943,7 @@ export const questions = [
     question:
       "In the event that a driver’s license is revoked, how many days does it have the right to appeal?",
     choice: {
-      0: "A.45 days",
+      0: "A. 45 days",
       1: "B. 30 days",
       2: "C. 15 days",
       3: "D. 60 days",
@@ -973,9 +973,9 @@ export const questions = [
     question:
       "The driver of the driving license whose license has been revoked must return the driving license to the registrar within days.",
     choice: {
-      0: "A.30 days",
+      0: "A. 30 days",
       1: "B. 15 days",
-      2: "C.60 days",
+      2: "C. 60 days",
       3: "D. 90 days",
     },
     answer: 1,
@@ -1005,7 +1005,7 @@ export const questions = [
     choice: {
       0: "A. 30 days",
       1: "B. 15 days",
-      2: "C.60 days",
+      2: "C. 60 days",
       3: "D. 90 days",
     },
     answer: 1,
@@ -1260,10 +1260,10 @@ export const questions = [
   {
     question: "How do drivers want to turn the car?",
     choice: {
-      0: "A. Slow down the car and turn on the turning light at least 30 meters",
-      1: "before turning.",
-      2: "B. Turn on the turning light before reaching the turn around 20 meters",
-      3: "C. Stop the car to prepare for turning.",
+      0: "A. Slow down the car and turn on the turning light at least 30 meters before turning.",
+      1: "B. Turn on the turning light before reaching the turn around 20 meters",
+      2: "C. Stop the car to prepare for turning.",
+      3: "D. Speed up before turning.",
     },
     answer: 0,
     imgUrl: null,
@@ -1376,8 +1376,8 @@ export const questions = [
     question: "Which car can be used in a road",
     choice: {
       0: "A. Cars that are noisier than the criteria set by the government",
-      1: "B. Cars with dragging objects on the driveway",
-      2: "Vehicles with wheels, not tires",
+      1: "B. Cars that are dragging objects on the driveway",
+      2: "C. Vehicles with wheels, but not tires",
       3: "D. Vehicles with an engine noise of 80 decibels",
     },
     answer: 3,
@@ -1685,7 +1685,7 @@ export const questions = [
     choice: {
       0: "A. Driving abnormalities",
       1: "B. Overtaking the car in the tunnel",
-      2: "Drive in a traffic obstruction manner",
+      2: "C. Drive in a traffic obstruction manner",
       3: "D. Drive faster than the rate required by law",
     },
     answer: 3,
@@ -1801,7 +1801,7 @@ export const questions = [
     choice: {
       0: "A. Imprisonment of not more than 3 months or a fine of 1,000 to. 50,000 baht.",
       1: "B. Imprisonment of not more than 1 year or a fine of 5,000 to. 20,000 baht or both.",
-      2: "D. fine not more than 5,000 baht",
+      2: "C. fine not more than 5,000 baht",
       3: "D. fine not exceeding 10,000 baht",
     },
     answer: 1,
@@ -2005,7 +2005,7 @@ export const questions = [
     choice: {
       0: "A. Be extra careful. Then stop the car.",
       1: "B. Be extra careful. The stop-delivery zone",
-      2: "c. Drive slowly if you see that it is unsafe for other cars or pedestrians in the way ahead. Have to stop the car before reaching the line, make way",
+      2: "C. Drive slowly if you see that it is unsafe for other cars or pedestrians in the way ahead. Have to stop the car before reaching the line, make way",
       3: "D. Increase caution and park the car",
     },
     answer: 2,
@@ -2394,7 +2394,7 @@ export const questions = [
     question: "This sign What does it mean?",
     choice: {
       0: "A. Wheelbarrows, pull cart,",
-      1: "A. Let bicycles to park",
+      1: "B. Let bicycles to park",
       2: "C. Motorcycle to park",
       3: "D. Do not stop or park all types of cars",
     },
@@ -2410,7 +2410,7 @@ export const questions = [
     choice: {
       0: "A. No people passing",
       1: "B. Crossings",
-      2: "c. Crossroad areas",
+      2: "C. Crossroad areas",
       3: "D. Only pedestrians",
     },
     answer: 3,
@@ -2859,7 +2859,7 @@ export const questions = [
     question: "What does this sign mean?",
     choice: {
       0: "A. Alternately",
-      1: "b. Back curves beginning left",
+      1: "B. Back curves beginning left",
       2: "C. Reverse curves begin right",
       3: "D. Left curves",
     },
@@ -2875,8 +2875,8 @@ export const questions = [
     choice: {
       0: "A. Drive slowly And be extra careful The road ahead has a separate branch to the left.",
       1: "B. Drive carefully. The road ahead is a crossway with the T-shaped road",
-      2: "C. Drive carefully. The road ahead is to cross the T-shaped",
-      3: "road.",
+      2: "C. Drive carefully. The road ahead is to cross the T-shaped road.",
+      3: "D. Drive carefully. The road ahead is the Y-intersection",
     },
     answer: 0,
     imgUrl:
@@ -3324,7 +3324,7 @@ export const questions = [
     choice: {
       0: "A. Drive carefully to the left side with caution. Left aisle",
       1: "B. Drive carefully to the left Aisle narrow right",
-      2: "Drive the car to the left with caution, when going down the slope.",
+      2: "C. Drive the car to the left with caution, when going down the slope.",
       3: "D. Drive carefully to the left side with caution.",
     },
     answer: 3,
@@ -3340,7 +3340,7 @@ export const questions = [
       0: "A. Drive slowly and keep left, be extra careful Right side way.",
       1: "B. Drive slowly and keep left. Be careful. The way ahead is a shared road without islands.",
       2: "C. Drive slowly and keep left. The way ahead",
-      3: ".D. Drive slowly and keep left. Be careful. Left hand side",
+      3: "D. Drive slowly and keep left. Be careful. Left hand side",
     },
     answer: 1,
     imgUrl:
@@ -3611,7 +3611,7 @@ export const questions = [
     choice: {
       0: "A. Gradually move the car out, leaving a considerable distance to the front car",
       1: "B. Slow down the motorcycle or car in front to move out first",
-      2: "Check the cars in other intersections that may come out before driving into the front intersection.",
+      2: "C. Check the cars in other intersections that may come out before driving into the front intersection.",
       3: "D. Honk the horn, accelerate the front car to move out quickly",
     },
     answer: 3,
@@ -3670,7 +3670,7 @@ export const questions = [
     choice: {
       0: "A. All drivers and passengers, both adults and children, front and back seats",
       1: "B. The driver and passenger of the front seat only",
-      2: "Drivers and passengers aged over 12 years old because they can wear seat belts",
+      2: "C. Drivers and passengers aged over 12 years old because they can wear seat belts",
       3: "D. Drivers and passengers Except for the elderly and children younger than 12 years old",
     },
     answer: 0,
@@ -3804,7 +3804,7 @@ export const questions = [
     choice: {
       0: "A. Honk the horn to speed up the car in front and warn the pedestrians to go out.",
       1: "B. Drive slowly with caution. Use horns only when necessary to alert pedestrians or other vehicles.",
-      2: "Drive the car parked or pedestrian by crossing to the traffic lane at the park",
+      2: "C. Drive the car parked or pedestrian by crossing to the traffic lane at the park",
       3: "D. Drive an arrow back to escape traffic congestion to other routes.",
     },
     answer: 1,
@@ -3848,9 +3848,9 @@ export const questions = [
       "During night time driving How should the car headlights be used?",
     choice: {
       0: "A. Turn on the high beam light while driving.",
-      1: "B. Turn on both the front and fog",
-      2: "lights.",
-      3: "C. Turn on the front lights, fog lights and emergency flashing lights.",
+      1: "B. Turn on both the front and fog lights.",
+      2: "C. Turn on the front lights, fog lights and emergency flashing lights.",
+      3: "D. Turn on the low beam when there is a car in the front and the car coming in opposite direction",
     },
     answer: 4,
     imgUrl: null,
@@ -4315,7 +4315,7 @@ export const questions = [
   {
     question:
       "What color is the warning light on the car dashboard? That shouldn’t appear while driving",
-    choice: { 0: "A. Red", 1: "B. Green", 2: "C. C. Yellow", 3: "D. Blue" },
+    choice: { 0: "A. Red", 1: "B. Green", 2: "C. Yellow", 3: "D. Blue" },
     answer: 0,
     imgUrl: null,
     imgName: null,
@@ -4680,7 +4680,7 @@ export const questions = [
     choice: {
       0: "A. Open the wiper",
       1: "B. Turn on emergency lights all the way",
-      2: "Drive more carefully.",
+      2: "C. Drive more carefully.",
       3: "D. Reduce the speed of the car",
     },
     answer: 1,
@@ -4709,8 +4709,8 @@ export const questions = [
     choice: {
       0: "A. Reduce speed and be extra careful before reaching the intersection.",
       1: "B. Be careful of the car on the left because it is near our lane.",
-      2: "C. Be careful of the car on the right and continue to",
-      3: "drive. D. Drive at the same speed.",
+      2: "C. Be careful of the car on the right and continue to drive.",
+      3: "D. Drive at the same speed.",
     },
     answer: 0,
     imgUrl:
@@ -4724,8 +4724,8 @@ export const questions = [
       "From the picture, if you want to drive straight past You should be careful and how to act.",
     choice: {
       0: "A. Slow down the car and let the car on the right hand to pass first.",
-      1: "B. Can continue driving because we are the",
-      2: "first. Drive at the same speed",
+      1: "B. Can continue driving because we are the first.",
+      2: "C. Drive at the same speed",
       3: "D. Speed ​​up the engine to pass first.",
     },
     answer: 0,
@@ -4923,7 +4923,7 @@ export const questions = [
     choice: {
       0: "A. To increase the power of the car",
       1: "B. To delay the speed of the car",
-      2: "B. To reduce the heat of the engine",
+      2: "C. To reduce the heat of the engine",
       3: "D. To increase the speed of the car",
     },
     answer: 1,
@@ -5402,7 +5402,7 @@ export const questions = [
     choice: {
       0: "A. Air filter",
       1: "B. Brake fluid runs out",
-      2: "Water in the boiler is dry.",
+      2: "C Water in the boiler is dry.",
       3: "D. The battery has no power.",
     },
     answer: 3,
@@ -5429,7 +5429,7 @@ export const questions = [
     question: "When should the driver use the emergency signal?",
     choice: {
       0: "A. When there is fog, rain, dust, smoke in the bus way",
-      1: "b. When driving through the intersection",
+      1: "B. When driving through the intersection",
       2: "C. When returning or changing lane",
       3: "D. When the car is broken or has an accident",
     },
@@ -5528,7 +5528,7 @@ export const questions = [
     choice: {
       0: "A. Dust particles",
       1: "B. Acid water reacts with air",
-      2: "B. Water hits the battery terminal",
+      2: "C. Water hits the battery terminal",
       3: "D. The battery insulator is dirty",
     },
     answer: 1,
@@ -5554,7 +5554,7 @@ export const questions = [
   {
     question: "How many voltages will the car’s battery have?",
     choice: {
-      0: "A.12 Volts.",
+      0: "A. 12 Volts.",
       1: "B. 15 Volts.",
       2: "C. 24 Volts",
       3: "D. 220 Volts",
@@ -5601,7 +5601,7 @@ export const questions = [
       0: "A. The charger is damaged.",
       1: "B. The battery is broken.",
       2: "C. The battery is approaching expired",
-      3: "d. Dry distilled water",
+      3: "D. Dry distilled water",
     },
     answer: 0,
     imgUrl: null,
@@ -5712,7 +5712,7 @@ export const questions = [
       0: "A. Switch the pipe to a low-pressure pipe.",
       1: "B. Use a tape to tighten it.",
       2: "C. Use it until oil drips",
-      3: "В. Replace the pipe.",
+      3: "D. Replace the pipe.",
     },
     answer: 3,
     imgUrl: null,
@@ -5754,7 +5754,7 @@ export const questions = [
       0: "A. Different starting systems",
       1: "B. Different cooling water systems",
       2: "С. Gasoline engines use spark plugs for ignition",
-      3: "В. Different electrical systems",
+      3: "D. Different electrical systems",
     },
     answer: 2,
     imgUrl: null,
@@ -5825,7 +5825,7 @@ export const questions = [
     choice: {
       0: "A. Does not affect the engine",
       1: "B. The engine wear is faster than using oil",
-      2: "c. The engine will be cooler than normal",
+      2: "C. The engine will be cooler than normal",
       3: "D. The spark plug lifetime is greater than the use of oil",
     },
     answer: 1,

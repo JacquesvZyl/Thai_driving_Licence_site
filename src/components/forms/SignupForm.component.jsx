@@ -23,7 +23,7 @@ function SignupForm() {
     try {
       setLoading(true);
       const resp = await signInWithGooglePopup();
-      console.log(resp.user);
+
       await setDoc(doc(db, "users", resp.user.uid), {
         email: resp.user.email,
       });
@@ -48,14 +48,11 @@ function SignupForm() {
         passwordRef.current.value
       );
 
-      console.log(resp.user);
-
       await setDoc(doc(db, "users", resp.user.uid), {
         email: resp.user.email,
       });
       navigate("/");
     } catch (error) {
-      console.log(error.message);
       toast(`⚠ ${error.message}`, {
         duration: 6000,
         style: toastStyleError,

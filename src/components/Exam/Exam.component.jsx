@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { addAnswer } from "../../store/userSlice";
 import { toastStyleError } from "../../utils/Global";
 import Button from "../ui/button/Button.component";
+import Spinner from "../ui/Spinner/Spinner.component";
 
 import styles from "./Exam.module.scss";
 
@@ -17,7 +18,7 @@ function Exam({
   setShowResult,
 }) {
   const [selected, setSelected] = useState(null);
-
+  const [isLoading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState(null);
   const isDone = currentQuestionNumber + 1 === +totalQuestions;
 
@@ -30,20 +31,26 @@ function Exam({
     }
 
     async function getImage() {
-      const storage = getStorage();
+      try {
+        setLoading(true);
+        const storage = getStorage();
 
-      const result = question.imgName.map(async (imgName) => {
-        const reference = ref(storage, `/images/${imgName}`);
-        return await getDownloadURL(reference);
-      });
-
-      const data = await Promise.all(result);
-      setImageUrl(data);
+        const result = question.imgName.map(async (imgName) => {
+          const reference = ref(storage, `/images/${imgName}`);
+          return await getDownloadURL(reference);
+        });
+        const data = await Promise.all(result);
+        setImageUrl(data);
+        setLoading(false);
+      } catch (e) {
+        toast(`⚠ ${e.message}`, {
+          duration: 2000,
+          style: toastStyleError,
+        });
+      }
     }
     getImage();
   }, [question.imgName]);
-
-  console.log(imageUrl);
 
   async function nextQuestion() {
     if (selected === null) {
@@ -92,10 +99,13 @@ function Exam({
       </div>
       <div className={styles.questionContainer}>
         <legend>{question.question}</legend>
+        {isLoading && <Spinner />}
         {imageUrl?.length > 0
-          ? imageUrl.map((url) => {
+          ? imageUrl.map((url, i) => {
               return (
-                <img className={styles.sign} key={url} src={url} alt="sign" />
+                <div className={styles.image__container}>
+                  <img className={styles.sign} key={i} src={url} alt="sign" />
+                </div>
               );
             })
           : ""}

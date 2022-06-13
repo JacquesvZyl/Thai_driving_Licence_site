@@ -70,9 +70,11 @@ function LoginForm() {
       <ButtonWithSpinner isLoading={isLoading} onClick={signIn}>
         Sign In
       </ButtonWithSpinner>
-      <Link className={styles.forgot_password} to="/forgot-password">
-        Forgot password?
-      </Link>
+      <span className={styles.forgot_password__container}>
+        <Link className={styles.forgot_password} to="/forgot-password">
+          Forgot password?
+        </Link>
+      </span>
     </form>
   );
 }

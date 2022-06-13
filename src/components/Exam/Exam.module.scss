@@ -30,6 +30,10 @@
       font-weight: 600;
     }
 
+    .image__container {
+      min-height: 250px;
+    }
+
     .sign {
       display: block;
       margin: 10px auto;
@@ -37,6 +41,7 @@
     }
     .question {
       margin-bottom: 20px;
+      padding: 5px;
       display: flex;
       align-items: center;
 

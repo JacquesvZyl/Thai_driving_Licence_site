@@ -20,6 +20,8 @@ import {
   setDoc,
 } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import toast from "react-hot-toast";
+import { toastStyleError } from "../utils/Global";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -93,9 +95,7 @@ export function returnResults(user, setResults) {
       .map((result) => result.data())
       .sort((a, b) => b.date - a.date)
       .filter((_, i) => i <= 2);
-    /*   const sortedResult = results
-      .sort((a, b) => b.date - a.date)
-      .filter((result, i) => i <= 4); */
+
     setResults((val) => (results.length > 0 ? results : null));
   });
 }
@@ -103,5 +103,23 @@ export function returnResults(user, setResults) {
 export async function forgotPassword(email) {
   return await sendPasswordResetEmail(auth, email, {
     url: "http://localhost:3000/login",
+  });
+}
+
+export async function addQuestionsToDB(data) {
+  try {
+    await setDoc(doc(db, "questionData", "data"), {
+      data: [...data],
+    });
+  } catch (e) {
+    throw new Error(e.message);
+  }
+}
+
+export function getQuestions(setState) {
+  return onSnapshot(doc(db, `questionData/data`), (snapshot) => {
+    const results = snapshot.data();
+
+    setState((val) => results.data);
   });
 }

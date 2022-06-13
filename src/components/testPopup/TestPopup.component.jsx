@@ -14,29 +14,27 @@ function TestPopup({
 
   useEffect(() => {
     returnResults(user, setResults);
-    console.log(results);
-  }, []);
+  }, [user]);
 
   function onStart() {
     generateRandomQuestions();
     setShowTest(true);
   }
 
-  console.log(results);
   return (
     <section className={styles.popup}>
       <div className={styles.text__container}>
         <h3>
           You will be given 50 random questions out of a pool of{" "}
-          {totalQuestionsInPool}
+          {totalQuestionsInPool}.
         </h3>
         <p>
           In order to pass, you need <span>90%</span> correct{" "}
-          <span>(45/50)</span>
+          <span>(45/50).</span>
         </p>
         <p>Good Luck!</p>
         <div className={styles.scores}>
-          <h4>Your previous 3 scores:</h4>
+          <h4>Your previous 3 results:</h4>
           {results ? (
             results.map((r) => {
               const newDate = new Date(r.date);
@@ -55,6 +53,14 @@ function TestPopup({
         </div>
       </div>
       <Button onClick={onStart}>Begin</Button>
+      <p className={styles.notice}>
+        NOTE: Most of these questions were taken from{" "}
+        <a href="https://move2thailand.com/driving-license-exam-in-thailand-2020/">
+          THIS LINK
+        </a>
+        . and were originally translated from Thai to English via Google
+        translate.
+      </p>
     </section>
   );
 }

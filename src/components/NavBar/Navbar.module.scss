@@ -7,10 +7,15 @@
   display: flex;
   width: 100%;
   background-color: transparent;
-  height: 60px;
+  height: 80px;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 20px;
+  padding: 0px 10px;
+
+  .logo {
+    height: 90px;
+    padding: 10px 0;
+  }
 
   h3 {
     color: $colorButtons;
@@ -50,5 +55,13 @@
   a {
     text-decoration: none;
     color: #ffff;
+  }
+}
+
+@media screen and(max-width: 450px) {
+  .header {
+    .logo {
+      height: 75px;
+    }
   }
 }

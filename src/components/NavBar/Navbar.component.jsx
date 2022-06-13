@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link, Outlet } from "react-router-dom";
 import { signOutUser } from "../../firebase/firebase";
-import { logout } from "../../store/userSlice";
+
 import styles from "./Navbar.module.scss";
 import Hamburger from "hamburger-react";
+import logo from "../../assets/img/Logo-1.png";
 
 function Navbar() {
   const userState = useSelector((state) => state.user.user);
@@ -26,7 +27,7 @@ function Navbar() {
     <>
       <header className={styles.header}>
         <Link to="/" onClick={() => setOpen(false)}>
-          <h3>Logo Placeholder</h3>
+          <img className={styles.logo} src={logo} alt="Logo" />
         </Link>
 
         <Hamburger toggled={isOpen} toggle={setOpen} />

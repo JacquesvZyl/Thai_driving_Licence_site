@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ButtonWithSpinner from "../../components/ui/buttonWithSpinner/ButtonWithSpinner.component";
 import { forgotPassword } from "../../firebase/firebase";
 import { toastStyle, toastStyleError } from "../../utils/Global";
@@ -15,9 +15,9 @@ function ForgotPassword() {
 
     try {
       setLoading(true);
-      const resp = await forgotPassword(emailRef.current.value);
-      console.log(resp);
-      toast(`E-maii sent! Check your Email as well as your Spam folder`, {
+      await forgotPassword(emailRef.current.value);
+
+      toast(`E-maii sent! Please check your Spam folder`, {
         duration: 3500,
         style: toastStyle,
       });
@@ -42,7 +42,7 @@ function ForgotPassword() {
           <div className={styles.or}>
             <span>OR</span>
           </div>
-          <Link className={styles.forgot_password} to="/login">
+          <Link className={styles.forgot__password} to="/login">
             Sign In
           </Link>
         </form>
