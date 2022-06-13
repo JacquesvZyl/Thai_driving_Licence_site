@@ -42,7 +42,7 @@ function TestPopup({
                 <div className={styles.score} key={r.date}>
                   <p>{newDate.toLocaleString()}</p>
                   <p>
-                    <span>Score:</span> {r.result}
+                    <span>Result:</span> {r.result}
                   </p>
                 </div>
               );

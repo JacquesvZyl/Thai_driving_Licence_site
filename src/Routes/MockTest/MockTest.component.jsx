@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import ExamWrapper from "../../components/ExamWrapper/ExamWrapper.component";
 import TestPopup from "../../components/testPopup/TestPopup.component";
 import { getQuestions } from "../../firebase/firebase";
