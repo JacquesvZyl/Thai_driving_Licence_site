@@ -19,7 +19,6 @@ function MockTest() {
   }, []);
 
   useEffect(() => {
-    if (!stateAnswers) return;
     dispatch(resetAnswers());
   }, [dispatch]);
 
