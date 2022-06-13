@@ -37,7 +37,7 @@ function Results({
     }
 
     setResults();
-  }, [answersState]);
+  }, [answersState, user]);
 
   const results = answersState?.map((answer, i) => {
     return (
