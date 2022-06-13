@@ -11,7 +11,7 @@ function MockTest() {
   const [questions, setQuestions] = useState([]);
   const [randomQuestions, setRandomQuestions] = useState([]);
   const [showResult, setShowResult] = useState(false);
-  const stateAnswers = useSelector((state) => state.user.answers);
+  //const stateAnswers = useSelector((state) => state.user.answers);
   const dispatch = useDispatch();
 
   useEffect(() => {
