@@ -4,7 +4,7 @@ import Spinner from "../../components/ui/Spinner/Spinner.component";
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import StudyQuestionWrapper from "../../components/StudyQuestionWrapper/StudyQuestionWrapper.component";
-import { addQuestionsToDB, getQuestions } from "../../firebase/firebase";
+import { getQuestions } from "../../firebase/firebase";
 
 function Study({ itemsPerPage }) {
   // We start with an empty list of items.
