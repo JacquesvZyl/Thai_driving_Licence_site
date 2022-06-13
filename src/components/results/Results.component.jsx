@@ -46,7 +46,7 @@ function Results({
         <div className={styles.question}>
           <h4>{answer.question}</h4>
           {answer.imageUrl && (
-            <img className={styles.sign} src={answer.imageUrl} />
+            <img className={styles.sign} src={answer.imageUrl} alt="sign" />
           )}
         </div>
         {answer.correctAnswerNum === answer.selectedAnswerNum ? (
