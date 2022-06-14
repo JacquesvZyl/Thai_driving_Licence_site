@@ -1,19 +1,30 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { signOutUser } from "../../firebase/firebase";
 
 import styles from "./Navbar.module.scss";
 import Hamburger from "hamburger-react";
 import logo from "../../assets/img/Logo-1.png";
+import toast from "react-hot-toast";
+import { toastStyleError } from "../../utils/Global";
 
 function Navbar() {
   const userState = useSelector((state) => state.user.user);
   const [isOpen, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   async function logoutHandler() {
-    await signOutUser();
-    setOpen(false);
+    try {
+      await signOutUser();
+      setOpen(false);
+      navigate("/logout-success");
+    } catch (e) {
+      toast(`⚠ ${e.message}`, {
+        duration: 6000,
+        style: toastStyleError,
+      });
+    }
   }
 
   const loginBtn = userState?.uid ? (

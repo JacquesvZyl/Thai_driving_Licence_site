@@ -9,6 +9,7 @@ import { onAuthStateChangeListener } from "./firebase/firebase";
 import ForgotPassword from "./Routes/forgot-password/ForgotPassword.component";
 import Homepage from "./Routes/HomePage/Homepage.component";
 import Login from "./Routes/Login/Login.component";
+import LogoutSuccessfulRedirect from "./Routes/logoutSuccessfulRedirect/LogoutSuccessfulRedirect.component";
 import MockTest from "./Routes/MockTest/MockTest.component";
 import Study from "./Routes/Study/Study.component";
 import { login, logout } from "./store/userSlice";
@@ -54,6 +55,10 @@ function App() {
             <Route index element={<Study itemsPerPage={10} />} />
           </Route>
           <Route path="*" element={<Homepage />} />
+
+          <Route path="/logout-success" element={<ProtectedUserRoute />}>
+            <Route index element={<LogoutSuccessfulRedirect />} />
+          </Route>
         </Route>
       </Routes>
     </div>
