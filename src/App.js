@@ -42,10 +42,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<Homepage />} />
-
-          <Route path="login" element={<ProtectedUserRoute />}>
-            <Route index element={<Login />} />
-          </Route>
+          <Route path="Login" element={<Login />} />
           <Route path="forgot-password" element={<ProtectedUserRoute />}>
             <Route index element={<ForgotPassword />} />
           </Route>

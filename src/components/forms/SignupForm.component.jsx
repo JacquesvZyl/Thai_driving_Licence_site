@@ -8,7 +8,6 @@ import {
   db,
   signInWithGooglePopup,
 } from "../../firebase/firebase";
-import { useNavigate } from "react-router-dom";
 import { toastStyleError } from "../../utils/Global";
 import googleImg from "../../assets/img/google.png";
 
@@ -17,7 +16,6 @@ function SignupForm() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
-  const navigate = useNavigate();
 
   async function googleSignIn() {
     try {
@@ -27,7 +25,6 @@ function SignupForm() {
       await setDoc(doc(db, "users", resp.user.uid), {
         email: resp.user.email,
       });
-      navigate("/");
     } catch (error) {
       toast(`⚠ ${error.message}`, {
         duration: 6000,
@@ -51,7 +48,6 @@ function SignupForm() {
       await setDoc(doc(db, "users", resp.user.uid), {
         email: resp.user.email,
       });
-      navigate("/");
     } catch (error) {
       toast(`⚠ ${error.message}`, {
         duration: 6000,

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { doc, setDoc } from "firebase/firestore";
 import {
   db,
@@ -15,7 +15,7 @@ import googleImg from "../../assets/img/google.png";
 function LoginForm() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
-  const navigate = useNavigate();
+
   const [isLoading, setLoading] = useState(false);
 
   async function googleSignIn() {
@@ -24,7 +24,6 @@ function LoginForm() {
       await setDoc(doc(db, "users", resp.user.uid), {
         email: resp.user.email,
       });
-      navigate("/");
     } catch (error) {
       toast(`⚠ ${error.message}`, {
         duration: 6000,
@@ -41,7 +40,6 @@ function LoginForm() {
         emailRef.current.value,
         passwordRef.current.value
       );
-      navigate("/");
     } catch (error) {
       toast(`⚠ ${error.message}`, {
         duration: 6000,
