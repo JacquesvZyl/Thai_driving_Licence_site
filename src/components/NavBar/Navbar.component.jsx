@@ -47,6 +47,14 @@ function Navbar() {
           className={styles.desktop__links}
           style={{ transform: isOpen ? "translateX(0)" : "translateX(100%)" }}
         >
+          <a
+            href="https://www.expatden.com/thailand/thai-driving-license/"
+            onClick={() => setOpen(false)}
+            target="_blank"
+            rel="noreferrer"
+          >
+            How to get a Thai Licence
+          </a>
           <Link to="/study" onClick={() => setOpen(false)}>
             Study
           </Link>
