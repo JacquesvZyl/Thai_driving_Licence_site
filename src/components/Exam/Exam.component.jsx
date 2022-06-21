@@ -41,13 +41,13 @@ function Exam({
         });
         const data = await Promise.all(result);
         setImageUrl(data);
-        setLoading(false);
       } catch (e) {
         toast(`⚠ ${e.message}`, {
           duration: 2000,
           style: toastStyleError,
         });
       }
+      setLoading(false);
     }
     getImage();
   }, [question.imgName]);
@@ -103,8 +103,8 @@ function Exam({
         {imageUrl?.length > 0
           ? imageUrl.map((url, i) => {
               return (
-                <div className={styles.image__container}>
-                  <img className={styles.sign} key={i} src={url} alt="sign" />
+                <div className={styles.image__container} key={i}>
+                  <img className={styles.sign} src={url} alt="sign" />
                 </div>
               );
             })

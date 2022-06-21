@@ -1,5 +1,8 @@
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { toastStyleError } from "../../utils/Global";
+import Spinner from "../ui/Spinner/Spinner.component";
 
 import styles from "./StudyQuestion.module.scss";
 
@@ -10,20 +13,30 @@ function StudyQuestion({
   setAllSelected,
 }) {
   const [imageUrl, setImageUrl] = useState(null);
+  const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!question.imgName) return;
+
     async function getImage() {
-      const storage = getStorage();
+      try {
+        setLoading(true);
+        const storage = getStorage();
+        const result = question.imgName.map(async (imgName) => {
+          const reference = ref(storage, `/images/${imgName}`);
 
-      const result = question.imgName.map(async (imgName) => {
-        const reference = ref(storage, `/images/${imgName}`);
+          return await getDownloadURL(reference);
+        });
 
-        return await getDownloadURL(reference);
-      });
-
-      const data = await Promise.all(result);
-      setImageUrl(data);
+        const data = await Promise.all(result);
+        setImageUrl(data);
+      } catch (e) {
+        toast(`⚠ ${e.message}`, {
+          duration: 2000,
+          style: toastStyleError,
+        });
+      }
+      setLoading(false);
     }
     getImage();
   }, [question.imgName]);
@@ -47,10 +60,13 @@ function StudyQuestion({
           Question: {question.id + 1} out of {totalQuestions}
         </h3>
         <legend>{question.question}</legend>
+        {isLoading && <Spinner />}
         {imageUrl &&
           imageUrl.map((url) => {
             return (
-              <img className={styles.sign} key={url} src={url} alt="sign" />
+              <div className={styles.image__container} key={url}>
+                <img className={styles.sign} key={url} src={url} alt="sign" />
+              </div>
             );
           })}
 
