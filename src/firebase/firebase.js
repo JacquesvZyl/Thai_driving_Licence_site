@@ -94,7 +94,7 @@ export function returnResults(user, setResults) {
 
 export async function forgotPassword(email) {
   return await sendPasswordResetEmail(auth, email, {
-    url: "http://localhost:3000/login",
+    url: "http://thai-driving-licence.com/login",
   });
 }
 
